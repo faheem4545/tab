@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tabs</title>
+    <style>
+      .tab {
+        display: flex;
+        margin: 5rem auto;
+        padding: 1rem 2rem;
+      }
+
+      .tab__header h3 {
+        display: flex;
+        background-color: #f1f1f1;
+        padding: 1rem 5rem;
+        justify-content: space-around;
+        /* width: 100%; */
+        border: 1px solid #ccc;
+        cursor: pointer;
+      }
+      .tab__header h3:hover {
+        background-color: #ddd;
+      }
+      div.tab__content {
+        display: none;
+        padding: 0 1rem;
+      }
+      @media screen and (max-width: 768px) {
+        .tab {
+          flex-direction: column;
+        }
+        .tab__header h3 {
+          width: 50%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tab">
+      <div class="tab__header">
+        <h3>Balochistan</h3>
+
+        <div class="tab__content">
+          Balochistan is the largest province of Pakistan by area. It is also
+          the least populated province, with an estimated population of 12.5
+          million as of 2017. It is bordered by the province of Khyber
+          Pakhtunkhwa to the north, Punjab to the northeast, Sindh to the east,
+          the Arabian Sea to the south, and Iran to the west. The provincial
+          capital and largest city is Quetta.
+        </div>
+      </div>
+      <div class="tab__header">
+        <h3>Punjab</h3>
+        <div class="tab__content">
+          Punjab is Pakistan's second largest province by area after Balochistan
+          and its most populous province, with an estimated population of over
+          110 million as of 2017. Forming the bulk of the transnational Punjab
+          region, it is bordered by the Pakistani province of Khyber Pakhtunkhwa
+          to the north, Azad Kashmir and Gilgit-Baltistan to the northeast, the
+          Indian states of Jammu and Kashmir to the east, Rajasthan to the
+          southeast, Sindh to the south, and the Arabian Sea to the west. The
+          provincial capital is Lahore.
+        </div>
+      </div>
+      <div class="tab__header">
+        <h3>Sindh</h3>
+        <div class="tab__content">
+          Sindh is the third largest province of Pakistan by area, and the
+          second largest province by population after Punjab. It is bordered by
+          Balochistan to the west, Punjab to the north, and the Arabian Sea to
+          the south. The provincial capital is Karachi, the largest city in
+          Pakistan and the 7th largest city proper in the world.
+        </div>
+      </div>
+    </div>
+    <script>
+      // Get all elements with class="tab__header" inside the container
+      const tabHeader = document.querySelectorAll(".tab__header h3");
+      const tabContent = document.querySelector(".tab__content");
+      //converting nodelist to array
+      Array.from(tabHeader).forEach((e) => {
+        // Add a click event listener on each of them
+        e.addEventListener("click", () => {
+          //show the content
+          if (e.nextElementSibling.style.display === "none") {
+            e.nextElementSibling.style.display = "block";
+          } else {
+            e.nextElementSibling.style.display = "none";
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
